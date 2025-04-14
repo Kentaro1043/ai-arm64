@@ -1,6 +1,6 @@
 FROM node:lts
 
-RUN apt-get update && apt-get install tini --no-install-recommends -y && apt-get clean && rm -rf /var/lib/apt-get/lists/*
+RUN apt-get update && apt-get install tini libpango1.0-dev --no-install-recommends -y && apt-get clean && rm -rf /var/lib/apt-get/lists/*
 
 ARG enable_mecab=1
 
