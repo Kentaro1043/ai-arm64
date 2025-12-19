@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
@@ -39,6 +39,9 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=raw,value=latest
 
       - name: Build and push Docker image
         id: build-and-push
